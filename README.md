@@ -11,7 +11,7 @@
 
 打开终端输入查看当前版本命令
 ```
-npm -version
+npm -v
 8.0.0
 
 node -v
@@ -28,6 +28,7 @@ npx nuxi@latest init <项目名>
 接下来如果你的node 版本不对的话会提示：当前版本的Node.js（16.11.0）不受支持，可能会导致问题，请升级到兼容的版本>=18.0.0。
 
 
+## Node.js 的升级和降级
 用n升级nodejs（建议使用此方法）
 
 1. 先清缓存 sudo npm cache clean -f
@@ -37,7 +38,7 @@ npx nuxi@latest init <项目名>
 
 升级成功后再查看版本
 ```
-npm -version
+npm -v
 8.6.0
 
 node -v     
@@ -141,3 +142,22 @@ https://ipaddress.com/website/raw.githubusercontent.com
 通过使用cnpm，您可以利用淘宝镜像来加快Nuxt包的下载速度。
 如cnpm 还不行请将 DNS 更改为 Google 的（即 8.8.8.8），它应该可以正常工作。如果这不可行，请尝试使用热点，绝对没问题。对于所有面临此问题的非印度人来说，您的互联网提供商也可能存在问题。您不妨更改 DNS，看看是否有效。
 
+
+
+## npm的升级和降级 
+要升级npm的版本，您可以使用以下命令：
+```
+sudo npm install -g npm@latest
+```
+
+这将安装npm的最新版本，并将其设置为全局安装。这样，您就可以升级到npm的最新版本。
+
+如果您想要降级npm的版本，可以使用以下命令：
+
+```
+sudo npm install -g npm@<version>
+```
+
+请将`<version>`替换为您希望安装的特定版本号。这将安装指定版本的npm，并将其设置为全局安装。
+
+通过这些命令，您可以轻松地升级或降级npm的版本。 
