@@ -64,26 +64,46 @@ npm ERR!     /Applications/MxSrvs/cache/nodejs/_logs/2024-01-18T08_33_57_999Z-de
 这种方式经常DNS污染导致下载会失败
 Error: Failed to download template from registry: fetch failed
 
-可以翻墙或找IP地址，此时执行 ping raw.githubusercontent.com 无法ping通目标地址
-通过站长工具查询框中输入：raw.githubusercontent.com，找到相应的一个或多个ipv4地址
-https://www.ipaddress.com/site/raw.githubusercontent.com
-将其中一个ipv4地址添加到 etc\host 文件里并保存看是否能PING通了，不能再换ip。
 
-如果还不行可以直接下载压缩包(不建议)
+### 方法一
+(1)手动克隆模板仓库
+其实，从之前我们也知道了，所谓的脚手架实际上就是拉去nuxt项目模板仓库中的文件。
+所以我们只需要手动git clone即可。
+```
+git clone -b v3 https://github.com/nuxt/starter.git nuxt3-app
+```
+-b 是指定分支，目前最新的nuxt3在v3分支。
+或直接手动下载压缩包
 下载地址 https://codeload.github.com/nuxt/starter/tar.gz/refs/heads/v3
 然后解压到项目文件夹就可以了，与npx nuxi init得到的最终效果是一致的。
 
+### 方法二
+可以翻墙或找IP地址，此时执行 ping raw.githubusercontent.com 无法ping通目标地址
+通过浏览器输入：
+```
+https://www.ipaddress.com/site/raw.githubusercontent.com
+或
+https://ipaddress.com/website/raw.githubusercontent.com
+```
+找到相应的一个或多个ipv4地，任选一个ipv4地址，并测试该ipv4地址可否ping通
+将其中一个ipv4地址添加到 etc\host 文件里并保存看是否能PING通了，不能再换ip。
+```
+185.199.108.133 raw.githubusercontent.com
+```
+重新执行安装命令看是否正常执行！
 
 
-(推荐方法2)如在安装Nuxt时遇到了ETIMEDOUT错误。这通常是由于网络连接问题引起的，可能是npm包下载超时导致的。为了解决这个问题，您可以尝试以下几种方法：
+
+
+如在安装Nuxt时遇到了ETIMEDOUT错误。这通常是由于网络连接问题引起的，可能是npm包下载超时导致的。为了解决这个问题，您可以尝试以下几种方法：
 
 1. 检查您的网络连接，确保网络畅通，并且没有阻止npm包下载的防火墙或代理设置。
-2. 可以尝试使用npm的淘宝镜像或其他npm镜像源来下载包，以提高下载速度和稳定性。
+2. 可以尝试使用npm的淘宝镜像或其他npm镜像源来下载包，以提高下载速度和稳定性。(推荐)
 3. 如果您使用的是VPN，请尝试关闭VPN连接后重新运行安装命令或走VPN连外网。
 
 
 要使用npm镜像源来加快包下载速度，您可以按照以下步骤进行操作：
-1. 打开命令行工具（如终端或命令提示符）。
+1. 打开命令行工具（如终端或命令提示符）
 2. 输入以下命令，将npm的镜像源设置为淘宝镜像：
    ```
    npm config set registry https://registry.npm.taobao.org
@@ -94,7 +114,7 @@ https://www.ipaddress.com/site/raw.githubusercontent.com
    npm config set registry https://registry.npmjs.org/
    ```
    这会将npm的镜像源切换回官方源。
-4.　查看npm镜像设置
+4. 查看npm镜像设置
     ```
     npm config get registry
     ```
@@ -118,5 +138,6 @@ https://www.ipaddress.com/site/raw.githubusercontent.com
 
    请将`<app-name>`替换为您希望创建的Nuxt应用程序的名称。
 
-通过使用cnpm，您可以利用淘宝镜像来加快Nuxt包的下载速度。希望这能帮助您成功安装Nuxt。如果您需要进一步协助，请随时告诉我！
+通过使用cnpm，您可以利用淘宝镜像来加快Nuxt包的下载速度。
+如cnpm 还不行请将 DNS 更改为 Google 的（即 8.8.8.8），它应该可以正常工作。如果这不可行，请尝试使用热点，绝对没问题。对于所有面临此问题的非印度人来说，您的互联网提供商也可能存在问题。您不妨更改 DNS，看看是否有效。
 
