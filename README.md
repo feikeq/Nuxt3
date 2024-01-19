@@ -29,7 +29,7 @@ npx nuxi@latest init <项目名>
 
 
 ## Node.js 的升级和降级
-用n升级nodejs（建议使用此方法）
+用n升级nodejs（建议使用此方法，npm的版本也会随着node的版本升降）
 
 1. 先清缓存 sudo npm cache clean -f
 2. 安装模块 sudo npm install n -g
@@ -39,13 +39,36 @@ npx nuxi@latest init <项目名>
 升级成功后再查看版本
 ```
 npm -v
-8.6.0
+8.6.0 / 10.2.4
 
 node -v     
-v18.0.0
+v18.0.0 / v20.11.0
 ```
 
 再重新在端输入Nuxt3安装命令
+
+
+
+
+## npm的升级和降级 （建议和node 兼容的版本走）
+要升级npm的版本，您可以使用以下命令：
+```
+sudo npm install -g npm@latest
+```
+
+这将安装npm的最新版本，并将其设置为全局安装。这样，您就可以升级到npm的最新版本。
+
+如果您想要降级npm的版本，可以使用以下命令：
+
+```
+sudo npm install -g npm@<version>
+```
+
+请将`<version>`替换为您希望安装的特定版本号。这将安装指定版本的npm，并将其设置为全局安装。
+
+通过这些命令，您可以轻松地升级或降级npm的版本。 
+
+
 
 如果网络连接有关的问题报错
 ```
@@ -66,19 +89,8 @@ npm ERR!     /Applications/MxSrvs/cache/nodejs/_logs/2024-01-18T08_33_57_999Z-de
 Error: Failed to download template from registry: fetch failed
 
 
-### 方法一
-(1)手动克隆模板仓库
-其实，从之前我们也知道了，所谓的脚手架实际上就是拉去nuxt项目模板仓库中的文件。
-所以我们只需要手动git clone即可。
-```
-git clone -b v3 https://github.com/nuxt/starter.git nuxt3-app
-```
--b 是指定分支，目前最新的nuxt3在v3分支。
-或直接手动下载压缩包
-下载地址 https://codeload.github.com/nuxt/starter/tar.gz/refs/heads/v3
-然后解压到项目文件夹就可以了，与npx nuxi init得到的最终效果是一致的。
 
-### 方法二
+### 方法一
 可以翻墙或找IP地址，此时执行 ping raw.githubusercontent.com 无法ping通目标地址
 通过浏览器输入：
 ```
@@ -94,16 +106,8 @@ https://ipaddress.com/website/raw.githubusercontent.com
 重新执行安装命令看是否正常执行！
 
 
-
-
-如在安装Nuxt时遇到了ETIMEDOUT错误。这通常是由于网络连接问题引起的，可能是npm包下载超时导致的。为了解决这个问题，您可以尝试以下几种方法：
-
-1. 检查您的网络连接，确保网络畅通，并且没有阻止npm包下载的防火墙或代理设置。
-2. 可以尝试使用npm的淘宝镜像或其他npm镜像源来下载包，以提高下载速度和稳定性。(推荐)
-3. 如果您使用的是VPN，请尝试关闭VPN连接后重新运行安装命令或走VPN连外网。
-
-
-要使用npm镜像源来加快包下载速度，您可以按照以下步骤进行操作：
+### 方法二
+如在安装Nuxt时遇到了ETIMEDOUT错误。这通常是由于网络连接问题引起的，可能是npm包下载超时导致的。为了解决这个问题，您可以尝试使用npm的淘宝镜像或其他npm镜像源来下载包，以提高下载速度和稳定性。
 1. 打开命令行工具（如终端或命令提示符）
 2. 输入以下命令，将npm的镜像源设置为淘宝镜像：
    ```
@@ -123,7 +127,7 @@ https://ipaddress.com/website/raw.githubusercontent.com
 
 
 
-
+### 方法三
 如果还是报错Error: Failed to download template from registry: fetch failed  
 如果切换到淘宝镜像后仍然无法解决问题，您可以尝试使用cnpm（淘宝镜像的命令行工具）来安装Nuxt。以下是使用cnpm的步骤：
 
@@ -144,20 +148,16 @@ https://ipaddress.com/website/raw.githubusercontent.com
 
 
 
-## npm的升级和降级 
-要升级npm的版本，您可以使用以下命令：
+
+### 方法一
+(1)手动克隆模板仓库
+其实，从之前我们也知道了，所谓的脚手架实际上就是拉去nuxt项目模板仓库中的文件。
+所以我们只需要手动git clone即可。
 ```
-sudo npm install -g npm@latest
+git clone -b v3 https://github.com/nuxt/starter.git nuxt3-app
 ```
-
-这将安装npm的最新版本，并将其设置为全局安装。这样，您就可以升级到npm的最新版本。
-
-如果您想要降级npm的版本，可以使用以下命令：
-
-```
-sudo npm install -g npm@<version>
-```
-
-请将`<version>`替换为您希望安装的特定版本号。这将安装指定版本的npm，并将其设置为全局安装。
-
-通过这些命令，您可以轻松地升级或降级npm的版本。 
+-b 是指定分支，目前最新的nuxt3在v3分支。
+或直接手动下载压缩包
+从https://raw.githubusercontent.com/nuxt/starter/templates/templates/v3.json 得到
+下载地址 https://codeload.github.com/nuxt/starter/tar.gz/refs/heads/v3
+然后解压到项目文件夹就可以了，与npx nuxi init得到的最终效果是一致的。
