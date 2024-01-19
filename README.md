@@ -149,7 +149,7 @@ https://ipaddress.com/website/raw.githubusercontent.com
 
 
 
-### 方法一
+### 方法四（最终用这办法初始化的仓库）
 (1)手动克隆模板仓库
 其实，从之前我们也知道了，所谓的脚手架实际上就是拉去nuxt项目模板仓库中的文件。
 所以我们只需要手动git clone即可。
