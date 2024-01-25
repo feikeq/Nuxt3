@@ -2,6 +2,10 @@
 definePageMeta({
   title: '首页pages/index'
 })
+const appConfig = useAppConfig()
+
+console.log("theme",appConfig.theme)
+
 </script>
 
 <template>
