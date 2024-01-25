@@ -28,7 +28,7 @@ npx nuxi@latest init <项目名>
 接下来如果你的node 版本不对的话会提示：当前版本的Node.js（16.11.0）不受支持，可能会导致问题，请升级到兼容的版本>=18.0.0。
 
 
-## Node.js 的升级和降级
+### Node.js 的升级和降级
 用n升级nodejs（建议使用此方法，npm的版本也会随着node的版本升降）
 
 1. 先清缓存 sudo npm cache clean -f
@@ -50,7 +50,7 @@ v18.0.0 / v20.11.0
 
 
 
-## npm的升级和降级 （建议和node 兼容的版本走）
+### npm的升级和降级 （建议和node 兼容的版本走）
 要升级npm的版本，您可以使用以下命令：
 ```
 sudo npm install -g npm@latest
@@ -90,7 +90,7 @@ Error: Failed to download template from registry: fetch failed
 
 
 
-### 方法一
+#### 方法一（最终用这办法初始化的仓库）
 可以翻墙或找IP地址，此时执行 ping raw.githubusercontent.com 无法ping通目标地址
 通过浏览器输入：
 ```
@@ -101,12 +101,12 @@ https://ipaddress.com/website/raw.githubusercontent.com
 找到相应的一个或多个ipv4地，任选一个ipv4地址，并测试该ipv4地址可否ping通
 将其中一个ipv4地址添加到 etc\host 文件里并保存看是否能PING通了，不能再换ip。
 ```
-185.199.108.133 raw.githubusercontent.com
+185.199.111.133 raw.githubusercontent.com
 ```
-重新执行安装命令看是否正常执行！
+重新执行安装命令看是否正常执行！不行的话再换个别的 IP
 
 
-### 方法二
+#### 方法二
 如在安装Nuxt时遇到了ETIMEDOUT错误。这通常是由于网络连接问题引起的，可能是npm包下载超时导致的。为了解决这个问题，您可以尝试使用npm的淘宝镜像或其他npm镜像源来下载包，以提高下载速度和稳定性。
 1. 打开命令行工具（如终端或命令提示符）
 2. 输入以下命令，将npm的镜像源设置为淘宝镜像：
@@ -127,7 +127,7 @@ https://ipaddress.com/website/raw.githubusercontent.com
 
 
 
-### 方法三
+#### 方法三
 如果还是报错Error: Failed to download template from registry: fetch failed  
 如果切换到淘宝镜像后仍然无法解决问题，您可以尝试使用cnpm（淘宝镜像的命令行工具）来安装Nuxt。以下是使用cnpm的步骤：
 
@@ -149,7 +149,7 @@ https://ipaddress.com/website/raw.githubusercontent.com
 
 
 
-### 方法四（最终用这办法初始化的仓库）
+#### 方法四
 (1)手动克隆模板仓库
 其实，从之前我们也知道了，所谓的脚手架实际上就是拉去nuxt项目模板仓库中的文件。
 所以我们只需要手动git clone即可。
@@ -161,3 +161,66 @@ git clone -b v3 https://github.com/nuxt/starter.git nuxt3-app
 从https://raw.githubusercontent.com/nuxt/starter/templates/templates/v3.json 得到
 下载地址 https://codeload.github.com/nuxt/starter/tar.gz/refs/heads/v3
 然后解压到项目文件夹就可以了，与npx nuxi init得到的最终效果是一致的。
+
+
+
+
+
+
+
+执行　npx nuxi@latest init  　后出现：
+```
+ WARN  Current version of Node.js (16.11.0) is unsupported and might cause issues. 
+       Please upgrade to a compatible version >= 18.0.0.
+
+
+❯ Which package manager would you like to use?
+● npm
+○ pnpm
+○ yarn
+○ bun
+```
+警告当前版本的Node.js（16.11.0）不受支持，可能会导致问题。
+请升级到兼容的版本>=18.0.0。
+Which package manager would you like to use?
+这是问您希望使用哪个软件包管理器？选npm 就好，然后就开始安装了
+```
+◐ Installing dependencies...                                                                                     上午11:51:06
+⸨⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⠂⸩ ⠇ idealTree:nuxt-app: sill idealTree buildDeps
+```
+
+漫长的安装后会提示
+```
+❯ Initialize git repository?
+○ Yes / ● No
+```
+问您是否要初始化git存储库？No选否就好，这样就安装完成了。
+
+
+## 使用
+### 初始化　
+请确保安装依赖项：
+```bash
+# npm
+npm install
+```
+
+### 开发
+```bash
+# npm
+npm run dev
+```
+
+### 生产
+生产构建应用程序：
+```bash
+# npm
+npm run build
+```
+
+本地预览生产版本：
+```bash
+# npm
+npm run preview
+```
+查看[部署文档](https://nuxt.com/docs/getting-started/deployment)了解更多信息。
