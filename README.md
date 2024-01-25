@@ -209,7 +209,12 @@ npm install
 ```bash
 # npm
 npm run dev
+
+# 浏览器窗口应自动打开http://localhost:3000
+npm run dev -- -o
 ```
+Nuxt 3.9.3 with Nitro 2.8.1  
+启动后就能通过 http://localhost:3000 访问网站
 
 ### 生产
 生产构建应用程序：
@@ -217,6 +222,8 @@ npm run dev
 # npm
 npm run build
 ```
+第一次打包构建是Total size: 1.84 MB (442 kB gzip)
+You can preview this build using node .output/server/index.mjs     
 
 本地预览生产版本：
 ```bash
