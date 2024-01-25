@@ -223,7 +223,10 @@ Nuxt 3.9.3 with Nitro 2.8.1
 npm run build
 ```
 第一次打包构建是Total size: 1.84 MB (442 kB gzip)
-You can preview this build using node .output/server/index.mjs     
+当nuxt build使用 Node 服务器预设运行时，结果将是启动准备运行的 Node 服务器的入口点。
+```
+node .output/server/index.mjs
+```  
 
 本地预览生产版本：
 ```bash
