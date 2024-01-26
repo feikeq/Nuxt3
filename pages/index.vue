@@ -60,9 +60,17 @@ const { data, error } = await useAsyncData('/api/count', () => myGetFunction('us
 
 <template>
   <div>{{ $route.meta.title }}</div>
-  <p>{{ formatNumber(46123456.789212) }}</p>
-  <div>
+  <div class="example">
+    <p>{{ formatNumber(46123456.789212) }}</p>
     ｜<NuxtLink to="/user-admin/234/">我来看看/user-admin/234/</NuxtLink>｜
   </div>
 </template>
  
+
+<style lang="scss">
+.example {
+  p {
+    color: red;
+  }
+}
+</style>

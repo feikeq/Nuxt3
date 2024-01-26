@@ -234,3 +234,13 @@ node .output/server/index.mjs
 npm run preview
 ```
 查看[部署文档](https://nuxt.com/docs/getting-started/deployment)了解更多信息。
+
+
+
+
+
+安装 Sass 的依赖。
+```bash
+npm install -D sass
+```
+安装完成后，重新启动你的 Nuxt 3 项目。
