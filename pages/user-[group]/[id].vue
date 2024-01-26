@@ -2,11 +2,6 @@
 const route = useRoute()
 console.log('警告确保用户已通过身份验证！')
 console.log(route.params.group, '-', route.params.id)
-definePageMeta({
-  pageTransition: {
-    name: 'rotate'
-  }
-})
 </script>
 
 <template>

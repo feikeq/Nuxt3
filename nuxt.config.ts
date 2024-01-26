@@ -6,7 +6,7 @@ export default defineNuxtConfig({
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
     },
-    pageTransition: { name: 'page', mode: 'out-in' } // 页面转换过渡效果
+    // pageTransition: { name: 'page', mode: 'out-in' } // 页面转换过渡效果
   },
   devtools: { enabled: true }
 })
