@@ -46,6 +46,12 @@ useSeoMeta({
 const appConfig = useAppConfig()
 console.log("theme", appConfig.theme)
 
+// const headers = useRequestHeaders(['cookie'])
+// console.log("headers", headers)
+// console.log("cookie", headers.cookie)
+
+const { data: count } = await useFetch('/api/count')
+const { data, error } = await useAsyncData('/api/count', () => myGetFunction('users'))
 
 </script>
 
