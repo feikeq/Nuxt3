@@ -1,4 +1,7 @@
 <script setup lang="ts">
+definePageMeta({
+  layout: 'custom'
+})
 
 const props = defineProps({
   version: {
@@ -27,7 +30,7 @@ useHead({
     class: 'gogogotest'
   },
   script: [{
-    src: 'https://www.ccav.tv/go.js',
+    src: '/js/script.js',
     tagPosition: 'bodyClose'
   },
   { innerHTML: 'console.log(\'Hello world\')' }]
