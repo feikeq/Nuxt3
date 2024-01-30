@@ -228,6 +228,13 @@ npm run build
 node .output/server/index.mjs
 ```  
 
+也可以仅客户端渲染
+如果您不想预渲染路由，另一种使用静态托管的方法是在nuxt.config文件中将ssr属性设置为false。然后，npm run generate命令将输出一个.output/public/index.html入口点和JavaScript捆绑包，就像经典的客户端Vue.js应用程序一样。
+```
+npm run generate
+``` 
+  
+
 本地预览生产版本：
 ```bash
 # npm
