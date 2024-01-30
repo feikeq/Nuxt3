@@ -53,6 +53,33 @@ const headers = useRequestHeaders(['cookie'])
 console.log("headers", headers)
 console.log("cookie", headers.cookie)
 
+
+const counter = useCookie('counter', { domain: ".ccav.tv", path: "/", maxAge: 60 * 60 * 24 * 2 })
+counter.value = counter.value || Math.round(Math.random() * 1000)
+console.log("cookie", counter.value)
+
+
+const list = useCookie(
+  'list',
+  {
+    default: () => [],
+    watch: 'shallow'
+  }
+)
+
+function add() {
+  list.value?.push(Math.round(Math.random() * 1000))
+  // list cookie not update with this change
+}
+
+function save() {
+  if (list.value && list.value !== null) {
+    list.value = [...list.value]
+    // list cookie update with this change
+  }
+}
+
+
 // const { data: count } = await useFetch('/api/count')
 // const { data, error } = await useAsyncData('/api/count', () => myGetFunction('users'))
 
@@ -62,9 +89,11 @@ console.log("cookie", headers.cookie)
   <div>{{ $route.meta.title }}</div>
   <div class="example">
     <p>{{ formatNumber(46123456.789212) }}</p>
-    <p>{{tools.typeOf({})}}</p>
+    <p>{{ tools.typeOf({}) }}</p>
     ｜<NuxtLink to="/user-admin/234/">我来看看/user-admin/234/</NuxtLink>｜
   </div>
+  <button @click="add">Add</button>
+  <button @click="save">Save</button>
 </template>
  
 
