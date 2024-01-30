@@ -1,7 +1,8 @@
 // Nuxt配置 https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: false, //　关闭服务端渲染
   devServer: {
-    port: 8888,//　端口，可以由 PORT 环境变量重写
+    port: 8888,//　默认为3000端口，可以由 PORT 环境变量重写
     host: "0.0.0.0",
   },
 
