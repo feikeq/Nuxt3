@@ -8,5 +8,13 @@ export default defineNuxtConfig({
     },
     // pageTransition: { name: 'page', mode: 'out-in' } // 页面转换过渡效果
   },
-  devtools: { enabled: true }
+  devtools: { enabled: true },
+  runtimeConfig: {
+    // 仅在服务器端可用的私钥,可以由 NUXT_API_SECRET 环境变量重写
+    apiSecret: '256257282931',
+    // 公钥中的密钥也将暴露给客户端,可以由 NUXT_PUBLIC_API_BASE 环境变量重写
+    public: {
+      apiBase: '/aaaaapppppppppiiiiii'
+    }
+  }
 })

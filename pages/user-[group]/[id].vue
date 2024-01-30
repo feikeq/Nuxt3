@@ -1,4 +1,9 @@
 <script setup lang="ts">
+useHead({
+    title: `标题`,
+    titleTemplate: '%s - Meta Tags Example'
+})
+
 const route = useRoute()
 console.log('警告确保用户已通过身份验证！')
 console.log(route.params.group, '-', route.params.id)

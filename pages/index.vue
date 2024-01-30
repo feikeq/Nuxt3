@@ -90,8 +90,13 @@ const url = useRequestURL() // 返回一个在服务器端和客户端都工作�
 // const router = useRouter() // 返回路由器实例(不用定义，模版里也可以直接使用$router.back())
 
 
-const config = useRuntimeConfig() // 访问运行时配置变量
-console.log("config",config);
+const runtimeConfig = useRuntimeConfig() // 访问运行时配置变量
+if (process.server) {
+  console.log('API secret（服务端才能印出来）:', runtimeConfig.apiSecret)
+}
+console.log("apiSecret（客户端打印不出）",runtimeConfig.apiSecret)
+console.log("public.apiBase",runtimeConfig.public.apiBase)
+console.log("process.env.OTHER_VARIABLE",process.env.OTHER_VARIABLE)
 
 
 // 使用“useState”可组合项在组件之间创建响应式且 SSR 友好的共享状态。
