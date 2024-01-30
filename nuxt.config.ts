@@ -1,5 +1,6 @@
 // Nuxt配置 https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  // 仅客户端渲染 - 如果您不想预渲染路由，另一种使用静态托管的方法是在nuxt.config文件中将ssr属性设置为false。然后，npm run generate命令将输出一个.output/public/index.html入口点和JavaScript捆绑包，就像经典的客户端Vue.js应用程序一样。
   ssr: false, //　关闭服务端渲染
   devServer: {
     port: 8888,//　默认为3000端口，可以由 PORT 环境变量重写
