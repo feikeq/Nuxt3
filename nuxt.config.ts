@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     },
     // pageTransition: { name: 'page', mode: 'out-in' } // 页面转换过渡效果
   },
+  css: ['~/assets/scss/main.scss'], // 样式表将内联在 Nuxt 渲染的 HTML 中，全局注入并出现在所有页面中.
   devtools: { enabled: true },
   runtimeConfig: {
     // 仅在服务器端可用的私钥,可以由 NUXT_API_SECRET 环境变量重写
