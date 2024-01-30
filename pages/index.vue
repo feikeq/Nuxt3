@@ -55,9 +55,9 @@ console.log("headers", headers)
 console.log("cookie", headers.cookie)
 
 
-const counter = useCookie('counter', { domain: ".ccav.tv", path: "/", maxAge: 60 * 60 * 24 * 2 })
-counter.value = counter.value || Math.round(Math.random() * 1000)
-console.log("cookie", counter.value)
+const testCookie = useCookie('testCookie', { domain: ".ccav.tv", path: "/", maxAge: 60 * 60 * 24 * 2 })
+testCookie.value = testCookie.value || Math.round(Math.random() * 1000)
+console.log("testCookie", testCookie.value)
 
 
 const list = useCookie(
@@ -94,10 +94,11 @@ const config = useRuntimeConfig() // 访问运行时配置变量
 console.log("config",config);
 
 
-
+// 使用“useState”可组合项在组件之间创建响应式且 SSR 友好的共享状态。
 // 创建状态并设置默认值
 const states = useState('states', () => Math.round(Math.random() * 100))
 console.log(states.value);
+const sameStates = useState('states')
 
 </script>
 
@@ -113,8 +114,15 @@ console.log(states.value);
     <p>Path is: {{ url.pathname }}</p>
     ｜<NuxtLink to="/user-admin/234/">我来看看/user-admin/234/</NuxtLink>｜
   </div>
-  <button @click="add">Add</button>
-  <button @click="save">Save</button>
+  <button @click="add">CookieAdd</button>
+  <button @click="save">CookieSave</button>
+
+  <p>状态管理 States: {{ states }}</p>
+  <div class="flex gap-2 my-4">
+    <button @click="states--">-</button>
+    <button @click="states++">+</button>
+  </div>
+  <p>Same States: {{ sameStates }}</p>
 </template>
  
 

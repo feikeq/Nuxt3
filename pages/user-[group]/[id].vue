@@ -3,9 +3,9 @@ const route = useRoute()
 console.log('警告确保用户已通过身份验证！')
 console.log(route.params.group, '-', route.params.id)
 
-// 创建状态并设置默认值
-const states = useState('states', () => Math.round(Math.random() * 100))
-console.log(states.value);
+// 使用“useState”可组合项在组件之间创建响应式且 SSR 友好的共享状态。
+const sameStates = useState('states')
+console.log(sameStates.value);
 </script>
 
 <template>
