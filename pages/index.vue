@@ -49,12 +49,12 @@ useSeoMeta({
 const appConfig = useAppConfig()
 console.log("theme", appConfig.theme)
 
-// const headers = useRequestHeaders(['cookie'])
-// console.log("headers", headers)
-// console.log("cookie", headers.cookie)
+const headers = useRequestHeaders(['cookie'])
+console.log("headers", headers)
+console.log("cookie", headers.cookie)
 
-const { data: count } = await useFetch('/api/count')
-const { data, error } = await useAsyncData('/api/count', () => myGetFunction('users'))
+// const { data: count } = await useFetch('/api/count')
+// const { data, error } = await useAsyncData('/api/count', () => myGetFunction('users'))
 
 </script>
 
@@ -62,6 +62,7 @@ const { data, error } = await useAsyncData('/api/count', () => myGetFunction('us
   <div>{{ $route.meta.title }}</div>
   <div class="example">
     <p>{{ formatNumber(46123456.789212) }}</p>
+    <p>{{tools.typeOf({})}}</p>
     ｜<NuxtLink to="/user-admin/234/">我来看看/user-admin/234/</NuxtLink>｜
   </div>
 </template>
