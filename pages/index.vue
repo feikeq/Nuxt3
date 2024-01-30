@@ -96,7 +96,7 @@ if (process.server) {
 }
 console.log("apiSecret（客户端打印不出）",runtimeConfig.apiSecret)
 console.log("public.apiBase",runtimeConfig.public.apiBase)
-console.log("process.env.OTHER_VARIABLE",process.env.OTHER_VARIABLE)
+console.log("process.env.NUXT_PUBLIC_API_BASE",process.env.NUXT_PUBLIC_API_BASE)
 
 
 // 使用“useState”可组合项在组件之间创建响应式且 SSR 友好的共享状态。
