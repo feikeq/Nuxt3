@@ -1,6 +1,6 @@
 <template>
     <div>
-      <p>Some default layout content shared across all pages</p>
+      <p>自定义布局内容</p>
       <slot />
     </div>
   </template>

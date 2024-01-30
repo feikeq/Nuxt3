@@ -2,6 +2,10 @@
 const route = useRoute()
 console.log('警告确保用户已通过身份验证！')
 console.log(route.params.group, '-', route.params.id)
+
+// 创建状态并设置默认值
+const states = useState('states', () => Math.round(Math.random() * 100))
+console.log(states.value);
 </script>
 
 <template>
