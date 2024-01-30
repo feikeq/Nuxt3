@@ -1,7 +1,7 @@
 // Nuxt配置 https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devServer: {
-    port: process.env.PORT || 8888,
+    port: process.env.PORT ? Number(process.env.PORT) : 8888,
     host: "0.0.0.0",
   },
 
