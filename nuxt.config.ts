@@ -19,7 +19,7 @@ export default defineNuxtConfig({
     // 样式表将内联在 Nuxt 渲染的 HTML 中，全局注入并出现在所有页面中.
     '~/assets/main.scss',
     'animate.css/animate.min.css',// 官网https://animate.style/　非全局引用的话在页面添加 import 'animate.css';
-  ], 
+  ],
   devtools: { enabled: true },
   runtimeConfig: {
     // 仅在服务器端可用的私钥,可以由 NUXT_API_SECRET 环境变量重写
@@ -38,5 +38,13 @@ export default defineNuxtConfig({
         }
       }
     }
-  }
+  },
+  nitro: {
+    // 打包路径设置
+    output: {
+      dir: ".output/app_dist/",
+      // publicDir:".output/app_dist/public2",
+      // serverDir:".output/app_dist/server2"
+    }
+  },
 })
