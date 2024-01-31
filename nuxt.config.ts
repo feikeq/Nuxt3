@@ -50,6 +50,7 @@ export default defineNuxtConfig({
       }
     }
   },
+  //Configuration for Nitro. See: https://nitro.unjs.io/config/
   nitro: {
     // 打包路径设置
     output: {

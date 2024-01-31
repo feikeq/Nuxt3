@@ -84,7 +84,7 @@ function save() {
 // $fetch Nuxt3 使用 ofetch 全局公开 $fetch 助手来发出 HTTP 请求。-$fetch是在 Nuxt 中进行 HTTP 调用的首选方式，
 // 在SSR过程中，数据会被提取两次，一次在服务器上，另一次在客户端上。
 // const dataTwice = await $fetch('/api/item')
-const dataTwice = await $fetch('/api/item', {
+const dataTwice = await $fetch('/api/item1', {
   method: 'patch',
   body: { hello: 'world ' }
 })
@@ -92,10 +92,10 @@ const dataTwice = await $fetch('/api/item', {
 
 // useAsyncData 适合在服务器端渲染时预取数据 
 // 在SSR期间，数据仅在服务器端获取并传输到客户端。
-// const { data, error } = await useAsyncData('/api/item', () => myGetFunction('users'))
+const { data, error } = await useAsyncData('/api/item2', () => myGetFunction('users'))
 
 // useFetch 适合在客户端渲染时动态获取数据 - 您也可以用useFetch作为useAsyncData+$fetch的快捷方式
-// const { data } = await useFetch('/api/item')
+const { theDdata } = await useFetch('/api/item3')
 
 
 
