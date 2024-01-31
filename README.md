@@ -256,7 +256,7 @@ npm install -D sass
 
 
 
-##ESLint 设置Linter
+##　ESLint 设置Linter
 1. 安装ESLint 套件
 現在我們至 Nuxt 專根目錄下，開始安裝 ESLint 相關套件，當然，你也可以挑自己喜歡的進行配置，不過在這裡選擇以 Nuxt 3 官方提供的 ESLint 設定來做標準配置，並添加支援 Vue 3 的 ESLint 設定。
 ```
