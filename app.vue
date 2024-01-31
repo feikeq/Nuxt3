@@ -62,7 +62,7 @@ defineProps({
 const props = defineProps(['modelValue','title'])
 //声明触发的事件
 defineEmits(['update:modelValue'])
-console.log(props.title)
+console.log("props.title",props.title)
 
 // vue3 中 defineProps(['modelValue','title']) 和 defineModel() 实现v-model 这两种方式有什么区别？
 // v-model 可以在组件上使用以实现双向绑定。 
