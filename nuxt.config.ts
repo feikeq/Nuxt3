@@ -10,8 +10,12 @@ export default defineNuxtConfig({
   //不要在app.config文件中放入任何秘密值。它暴露给用户客户端捆绑包。
   app: {
     head: {
+      title:"测试",
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: `/favicon.ico` }
+      ],  
     },
     // pageTransition: { name: 'page', mode: 'out-in' } // 页面转换过渡效果
   },
