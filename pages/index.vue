@@ -113,8 +113,8 @@ const sameStates = useState('states')
   
   <div>{{ $route.meta.title }}</div>
   <div class="example">
-    <p>{{ formatNumber(46123456.789212) }}</p>
-    <p>{{ tools.typeOf({}) }}</p>
+    <p class="animate__animated animate__bounce animate__delay-2s">{{ formatNumber(46123456.789212) }}</p>
+    <p class="animate__animated animate__bounce animate__faster">{{ tools.typeOf({}) }}</p>
     <p>URL is: {{ url }}</p>
     <p>Path is: {{ url.pathname }}</p>
     ｜<NuxtLink to="/user-admin/234/">我来看看/user-admin/234/</NuxtLink>｜
