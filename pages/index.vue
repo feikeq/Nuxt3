@@ -80,10 +80,23 @@ function save() {
   }
 }
 
-// useFetch 适合在客户端渲染时动态获取数据
-// const { data: count } = await useFetch('/api/count')
-// useAsyncData 适合在服务器端渲染时预取数据
-// const { data, error } = await useAsyncData('/api/count', () => myGetFunction('users'))
+
+// $fetch Nuxt3 使用 ofetch 全局公开 $fetch 助手来发出 HTTP 请求。-$fetch是在 Nuxt 中进行 HTTP 调用的首选方式，
+// 在SSR过程中，数据会被提取两次，一次在服务器上，另一次在客户端上。
+// const dataTwice = await $fetch('/api/item')
+const dataTwice = await $fetch('/api/item', {
+  method: 'patch',
+  body: { hello: 'world ' }
+})
+
+
+// useAsyncData 适合在服务器端渲染时预取数据 
+// 在SSR期间，数据仅在服务器端获取并传输到客户端。
+// const { data, error } = await useAsyncData('/api/item', () => myGetFunction('users'))
+
+// useFetch 适合在客户端渲染时动态获取数据 - 您也可以用useFetch作为useAsyncData+$fetch的快捷方式
+// const { data } = await useFetch('/api/item')
+
 
 
 const url = useRequestURL() // 返回一个在服务器端和客户端都工作的URL 对象。
@@ -94,9 +107,9 @@ const runtimeConfig = useRuntimeConfig() // 访问运行时配置变量
 if (process.server) {
   console.log('API secret（服务端才能印出来）:', runtimeConfig.apiSecret)
 }
-console.log("apiSecret（客户端打印不出）",runtimeConfig.apiSecret)
-console.log("public.apiBase",runtimeConfig.public.apiBase)
-console.log("process.env.NUXT_PUBLIC_API_BASE",process.env.NUXT_PUBLIC_API_BASE)
+console.log(runtimeConfig, "apiSecret（客户端打印不出）", runtimeConfig.apiSecret)
+console.log("public.apiBase", runtimeConfig.public.apiBase)
+console.log("process.env.NUXT_PUBLIC_API_BASE", process.env.NUXT_PUBLIC_API_BASE)
 
 
 // 使用“useState”可组合项在组件之间创建响应式且 SSR 友好的共享状态。
@@ -112,8 +125,8 @@ const jsColor = ref("#E53935")
 
 <template>
   <button @click="$router.back()">Back</button>
-  <button @click="$router.push({ path:'/user-admin/678/' })">/678/</button>
-  
+  <button @click="$router.push({ path: '/user-admin/678/' })">/678/</button>
+
   <div>{{ $route.meta.title }}</div>
   <div class="example">
     <p class="animate__animated animate__bounce animate__delay-2s">{{ formatNumber(46123456.789212) }}</p>
@@ -137,8 +150,9 @@ const jsColor = ref("#E53935")
 <style lang="scss">
 .example {
   p {
-    color:$primary
+    color: $primary
   }
+
   .text {
     color: v-bind(jsColor);
   }
