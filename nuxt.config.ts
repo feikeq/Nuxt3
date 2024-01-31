@@ -16,6 +16,10 @@ export default defineNuxtConfig({
       // },  
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover',
+      meta: [
+        { name: 'description', content: '肥客是专业的网络应用技术团队。我们的团队凭借扎实的技术与优质的服务为企业、公司、政府等部门量身定制软件与网站的网络应用和用户体验。有非凡志向，才有非凡成就。' },
+        { name: 'keywords', content: '肥客,废客网站,废客软件,肥客官网,废客官方,废客CS,FK,网站设计制作建设,软件定制外包开发,平面设计UI设计UX设计' },
+      ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: `/favicon.ico` }
       ],  
