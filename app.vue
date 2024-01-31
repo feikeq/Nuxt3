@@ -192,5 +192,3 @@ onUnmounted(() => clearInterval(intervalId))
 
 </template>
 
-
-　

@@ -80,8 +80,9 @@ function save() {
   }
 }
 
-
-// $fetch Nuxt3 使用 ofetch 全局公开 $fetch 助手来发出 HTTP 请求。-$fetch是在 Nuxt 中进行 HTTP 调用的首选方式，
+// 数据获取 https://nuxt.com/docs/getting-started/data-fetching
+// $fetch 基于用户交互发出网络请求非常有用
+// Nuxt3 使用 ofetch 全局公开 $fetch 助手来发出 HTTP 请求。-$fetch是在 Nuxt 中进行 HTTP 调用的首选方式，
 // 在SSR过程中，数据会被提取两次，一次在服务器上，另一次在客户端上。
 // const dataTwice = await $fetch('/api/item')
 const dataTwice = await $fetch('/api/item1', {
@@ -90,12 +91,13 @@ const dataTwice = await $fetch('/api/item1', {
 })
 
 
-// useAsyncData 适合在服务器端渲染时预取数据 
+// useAsyncData 适合在服务器端渲染时预取数据  -useAsyncData与 结合使用$fetch，可提供更细粒度的控制。
 // 在SSR期间，数据仅在服务器端获取并传输到客户端。
-const { data, error } = await useAsyncData('/api/item2', () => myGetFunction('users'))
+const { data: res, error } = await useAsyncData('api_item2', () => myGetFunction('users'))
 
 // useFetch 适合在客户端渲染时动态获取数据 - 您也可以用useFetch作为useAsyncData+$fetch的快捷方式
-const { theDdata } = await useFetch('/api/item3')
+// useFetch 是在组件设置函数中处理数据获取的最直接方法。
+const { data, pending, status } = await useFetch('/api/item3')
 
 
 
@@ -109,7 +111,7 @@ if (process.server) {
 }
 console.log(runtimeConfig, "apiSecret（客户端打印不出）", runtimeConfig.apiSecret)
 console.log("public.apiBase", runtimeConfig.public.apiBase)
-console.log(process.env,"process.env.NUXT_PUBLIC_API_BASE", process.env.NUXT_PUBLIC_API_BASE)
+console.log(process.env, "process.env.NUXT_PUBLIC_API_BASE", process.env.NUXT_PUBLIC_API_BASE)
 
 
 // 使用“useState”可组合项在组件之间创建响应式且 SSR 友好的共享状态。
@@ -147,7 +149,7 @@ const jsColor = ref("#E53935")
 </template>
  
 
-<style lang="scss">
+<style lang="scss" scoped>
 .example {
   p {
     color: $primary
