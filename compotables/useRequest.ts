@@ -38,7 +38,7 @@ type Response = {
         const res = response._data;
         //后端返回code=0时弹出错误信息，此处采用了element-plus
         if (res.code == 0) {
-          ElMessage.error(res.msg);
+          console.log(res.msg);
         }
       },
       //响应错误拦截

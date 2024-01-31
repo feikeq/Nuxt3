@@ -99,6 +99,7 @@ const { data: res, error } = await useAsyncData('api_item2', () => $fetch('/api/
 // useFetch 适合在客户端渲染时动态获取数据 - 您也可以用useFetch作为useAsyncData+$fetch的快捷方式
 // useFetch 是在组件设置函数中处理数据获取的最直接方法。
 const { data, pending, status } = await useFetch('/api/item3')
+// const { data, pending, status } = await useRequest('/api/item4')
 
 
 
