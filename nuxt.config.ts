@@ -11,8 +11,11 @@ export default defineNuxtConfig({
   app: {
     head: {
       title:"测试",
+      // htmlAttrs: {
+      //   lang: 'zh'
+      // },  
       charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1',
+      viewport: 'width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover',
       link: [
         { rel: 'icon', type: 'image/x-icon', href: `/favicon.ico` }
       ],  
