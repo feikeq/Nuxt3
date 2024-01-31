@@ -93,7 +93,8 @@ const dataTwice = await $fetch('/api/item1', {
 
 // useAsyncData 适合在服务器端渲染时预取数据  -useAsyncData与 结合使用$fetch，可提供更细粒度的控制。
 // 在SSR期间，数据仅在服务器端获取并传输到客户端。
-const { data: res, error } = await useAsyncData('api_item2', () => myGetFunction('users'))
+const { data: res, error } = await useAsyncData('api_item2', () => $fetch('/api/item2'))
+//呼叫useAsyncData（）并不是直接帮我们送出HTTP请求，而是在handler内使用$fetch来打API，只是useAsyncData（）组合式函数，封装了更多打API时可以使用的方法与参数，来因应不同的使用情境。当然如果想要，你也可以使用其他套件来替换$fetch但可能就没办法享受它所带来的好处。
 
 // useFetch 适合在客户端渲染时动态获取数据 - 您也可以用useFetch作为useAsyncData+$fetch的快捷方式
 // useFetch 是在组件设置函数中处理数据获取的最直接方法。
