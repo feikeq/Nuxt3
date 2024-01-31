@@ -1,7 +1,9 @@
-$primary: #49240F;
-$secondary: #E4A79D;
+// 定义变量
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
 
 body{
     background-color: #262727;
-    color:#e0d9cd;
+    // color:#e0d9cd;
+    color: $primary-color;
 }

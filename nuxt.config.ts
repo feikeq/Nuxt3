@@ -18,7 +18,7 @@ export default defineNuxtConfig({
   css: [
     // 样式表将内联在 Nuxt 渲染的 HTML 中，全局注入并出现在所有页面中.
     '~/assets/main.scss',
-    'animate.css/animate.min.css',// 非全局引用的话在页面添加　import 'animate.css';
+    'animate.css/animate.min.css',// 官网https://animate.style/　非全局引用的话在页面添加 import 'animate.css';
   ], 
   devtools: { enabled: true },
   runtimeConfig: {
@@ -27,6 +27,16 @@ export default defineNuxtConfig({
     // 公钥中的密钥也将暴露给客户端,可以由 NUXT_PUBLIC_API_BASE 环境变量重写
     public: {
       apiBase: '/aaaaapppppppppiiiiii'
+    }
+  },
+  vite: {
+    css: {
+      // 带有颜色变量的sass 部分，可以使用 vite预处理器选项来执行此操作。
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "~/assets/_colors.scss" as *;'
+        }
+      }
     }
   }
 })

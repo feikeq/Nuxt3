@@ -105,6 +105,9 @@ const states = useState('states', () => Math.round(Math.random() * 100))
 console.log(states.value);
 const sameStates = useState('states')
 
+
+const jsColor = ref("#E53935")
+
 </script>
 
 <template>
@@ -114,8 +117,8 @@ const sameStates = useState('states')
   <div>{{ $route.meta.title }}</div>
   <div class="example">
     <p class="animate__animated animate__bounce animate__delay-2s">{{ formatNumber(46123456.789212) }}</p>
-    <p class="animate__animated animate__bounce animate__faster">{{ tools.typeOf({}) }}</p>
-    <p>URL is: {{ url }}</p>
+    <p class="animate__animated animate__bounceInDown animate__faster">{{ tools.typeOf({}) }}</p>
+    <p class="text">(动态样式v-bind) URL is: {{ url }}</p>
     <p>Path is: {{ url.pathname }}</p>
     ｜<NuxtLink to="/user-admin/234/">我来看看/user-admin/234/</NuxtLink>｜
   </div>
@@ -134,7 +137,10 @@ const sameStates = useState('states')
 <style lang="scss">
 .example {
   p {
-    color: red;
+    color:$primary
+  }
+  .text {
+    color: v-bind(jsColor);
   }
 }
 </style>
