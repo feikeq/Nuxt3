@@ -251,3 +251,120 @@ npm run preview
 npm install -D sass
 ```
 安装完成后，重新启动你的 Nuxt 3 项目。
+
+
+
+
+
+##ESLint 设置Linter
+1. 安装ESLint 套件
+現在我們至 Nuxt 專根目錄下，開始安裝 ESLint 相關套件，當然，你也可以挑自己喜歡的進行配置，不過在這裡選擇以 Nuxt 3 官方提供的 ESLint 設定來做標準配置，並添加支援 Vue 3 的 ESLint 設定。
+```
+npm install -D eslint @nuxtjs/eslint-config-typescript eslint-plugin-vue
+# or
+# yarn add -D eslint @nuxtjs/eslint-config-typescript eslint-plugin-vue
+```
+
+2. 配置ESLint 设定档
+安裝完所需套件後，接下來我們就可以來設定 ESLint，我們在專案根目錄下建立 .eslintrc.js 檔案，
+```
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true
+  },
+  extends: ['@nuxtjs/eslint-config-typescript', 'plugin:vue/vue3-recommended'],
+  parserOptions: {
+    ecmaVersion: 13,
+    sourceType: 'module'
+  },
+  plugins: [],
+  rules: {},
+  overrides: [
+    {
+      files: [
+        '**/pages/**/*.{js,ts,vue}',
+        '**/layouts/**/*.{js,ts,vue}',
+        '**/app.{js,ts,vue}',
+        '**/error.{js,ts,vue}'
+      ],
+      rules: {
+        'vue/multi-word-component-names': 'off'
+      }
+    }
+  ]
+}
+```
+
+
+## Prettier 设置
+Prettier是代码格式化的工具，也可以与ESLint进行搭配，ESLint与Prettier就能各司其职将JaveScript与Vue等档案依照配置进行检查与排版。
+
+1. 安装Prettier套件
+我们直接安装prettier、eslint-config-prettier与eslint-plugin-prettier三个套件。
+```
+npm install -D prettier eslint-config-prettier eslint-plugin-prettier
+# or
+# yarn add -D prettier eslint-config-prettier eslint-plugin-prettier
+
+```
+
+2. 配置Prettier设定档案
+我们在项目根目录下建立.prettierrc.js档案，内容如下，这些配置都可以自己设定来配合ESLint，更多选项或说明可以参考Prettier官方说明文件。
+```
+module.exports = {
+   printWidth: 120，//每行文字数量达100字元就换到新的一行
+   semi: false，//每个语句的结尾不需要分号
+   singleQuote: false，//字串使用单引号，而不是双引号
+   trailingComma:“none”，//如Object、Array内的元素不需要尾随逗号
+   endOfLine:“auto”，
+   vueIndentScriptAndStyle: true
+}
+```
+
+3. 配置ESLint设定档案
+我们在安装时多装了两个ESLint相关套件，分别为eslint-config-prettier及eslint-plugin-prettier。
+
+对此我们需要将其添加至ESLint的.eslintrc.js设定档内，在extends添加字串prettier表示使用eslint-config-prettier扩充配置，主要用来防止Prettier排版与ESLint发生冲突，让其可以用来禁用ESLint的格式化；接着在plugins中添加prettier字串表示使用eslint-plugin-prettier套件扩充，让ESLint可以提示我们格式有错误的地方。
+
+为了让Prettier与ESLint有更好的搭配，在rules的参数中记得添加'prettier/prettier'：'error'让ESLint可以提示Prettier的排版异常提示供我们做修正，至此.eslintrc.js设定档应该会如下。
+```
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true
+  },
+  extends: [
+    '@nuxtjs/eslint-config-typescript',
+    'plugin:vue/vue3-recommended',
+    'prettier'
+  ],
+  parserOptions: {
+    ecmaVersion: 13,
+    sourceType: 'module'
+  },
+  plugins: ['prettier'],
+  rules: {
+    'prettier/prettier': 'error'
+  },
+  overrides: [
+    {
+      files: [
+        '**/pages/**/*.{js,ts,vue}',
+        '**/layouts/**/*.{js,ts,vue}',
+        '**/app.{js,ts,vue}',
+        '**/error.{js,ts,vue}'
+      ],
+      rules: {
+        'vue/multi-word-component-names': 'off'
+      }
+    }
+  ]
+}
+```
+4. 安装VS Code的Prettier插件
+
+Prettier - Code formatter：提供我们做代码的格式化，最重要的是来协助我们自动加载.prettierrc.js配置。
+
+安装完毕后，建议重启VS Code来重新载入相关设定。
+
