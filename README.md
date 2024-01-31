@@ -366,5 +366,5 @@ module.exports = {
 
 Prettier - Code formatter：提供我们做代码的格式化，最重要的是来协助我们自动加载.prettierrc.js配置。
 
-安装完毕后，建议重启VS Code来重新载入相关设定。
+安装完毕后，建议重启VS Code来重新载入相关设定。这样，我们完成了TypeScript与Linter的配置，虽然配置有些繁琐，但写程序的风格有个标准及规则依循，肯定能协助你写出令人赞叹的完美的代码。
 
