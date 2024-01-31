@@ -1,6 +1,8 @@
 # Nuxt3
 
  官网　https://nuxt.com/
+ 中文　https://nuxt.com.cn/
+ 其它　https://ezdoc.cn/docs/nuxtjs
 
 
 ## 安装
