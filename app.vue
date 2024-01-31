@@ -187,6 +187,9 @@ onUnmounted(() => clearInterval(intervalId))
   />
 
    {{x}},{{y}}
+
+   <hr />
+   <NuxtWelcome />
   组件结束
 </ul>
 
