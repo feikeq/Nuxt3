@@ -59,4 +59,8 @@ export default defineNuxtConfig({
       // serverDir:".output/app_dist/server2"
     }
   },
+  plugins: [
+    { src: "@/compotables/ofetch", ssr: true }, // $fetch拦截器配置与token携带 - 开启服务端渲染
+  ],
+
 })
