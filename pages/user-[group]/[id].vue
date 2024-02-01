@@ -14,11 +14,13 @@ console.log(sameStates.value);
 </script>
 
 <template>
-    <!-- 
+    <div>
+        <!-- 
         如果访问　/user-admin/234
         <p>admin - 234</p>
      -->
-    <p>{{ $route.params.group }} - {{ $route.params.id }}</p>
-    ｜<NuxtLink to="/">返回首页</NuxtLink>｜
+        <p>{{ $route.params.group }} - {{ $route.params.id }}</p>
+        ｜<NuxtLink to="/" transition="fade">返回首页</NuxtLink>｜
+    </div>
 </template>
   

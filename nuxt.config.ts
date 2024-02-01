@@ -24,7 +24,7 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: `/favicon.ico` }
       ],  
     },
-    // pageTransition: { name: 'page', mode: 'out-in' } // 页面转换过渡效果
+    pageTransition: { name: 'page', mode: 'out-in' } // 页面转换过渡效果
   },
   css: [
     // 样式表将内联在 Nuxt 渲染的 HTML 中，全局注入并出现在所有页面中.
