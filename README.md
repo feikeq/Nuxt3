@@ -20,9 +20,9 @@ node -v
 v16.11.0
 ```
 
-打开终端输入Nuxt3安装命令
+打开终端输入Nuxt3安装命令(建议添加sudo以系统管理员身份执行命令)
 ```
-npx nuxi@latest init <项目名>
+sudo npx nuxi@latest init <项目名>
 ```
 会提示　需要安装以下软件包：nuxi@latest　可以继续吗？（y）输入 Y 回车就是了。
 
@@ -170,7 +170,7 @@ git clone -b v3 https://github.com/nuxt/starter.git nuxt3-app
 
 
 
-执行　npx nuxi@latest init  　后出现：
+不加sudo执行　npx nuxi@latest init  后出现：
 ```
  WARN  Current version of Node.js (16.11.0) is unsupported and might cause issues. 
        Please upgrade to a compatible version >= 18.0.0.
