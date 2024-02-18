@@ -29,7 +29,7 @@ export default defineNuxtConfig({
   },
   css: [
     // 样式表将内联在 Nuxt 渲染的 HTML 中，全局注入并出现在所有页面中.
-    '~/assets/main.scss',// 页面中使用  @import "~/assets/common.scss";
+    '~/assets/main.scss',// 页面的script标签中中使用  @import "~/assets/common.scss";
     'animate.css/animate.min.css',// 官网https://animate.style/　非全局引用的话在页面添加 import 'animate.css';
   ],
   devtools: { enabled: true },
