@@ -195,3 +195,7 @@ onUnmounted(() => clearInterval(intervalId))
 
 </template>
 
+<style>
+/* 在组件内导入样式表 */
+/* @import url("~/assets/css/second.css"); */
+</style>
