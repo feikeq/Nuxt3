@@ -4,11 +4,17 @@ export default defineNuxtConfig({
   ssr: false, //　关闭服务端渲染
   devServer: {
     port: 8888,//　默认为3000端口，可以由 PORT 环境变量重写
-    host: "0.0.0.0",
+    host: "0.0.0.0", // 开发服务器监听主机
+    // // 是否启用HTTPS。
+    // https: {
+    //   key: './server.key',
+    //   cert: './server.crt'
+    // }
   },
 
   //不要在app.config文件中放入任何秘密值。它暴露给用户客户端捆绑包。
   app: {
+    // baseURL:"/", // Nuxt 应用程序的基本路径。这可以在运行时通过设置 NUXT_APP_BASE_URL 环境变量来设置。
     head: {
       title:"测试",
       // htmlAttrs: {
