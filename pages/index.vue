@@ -41,7 +41,7 @@ useSeoMeta({
   title: `${props.title} - useSeoMeta`,
   ogTitle: 'My Amazing Site',//og:title
   ogDescription: 'This is my amazing site, let me tell you all about it.',//og:description
-  ogImage: 'https://example.com/image.png',
+  ogImage: 'https://test.com/image.png',
   twitterCard: 'summary_large_image',//twitter:card
 })
 
@@ -80,7 +80,19 @@ function save() {
   }
 }
 
-// 数据获取 https://nuxt.com/docs/getting-started/data-fetching
+
+/*
+数据获取 https://nuxt.com/docs/getting-started/data-fetching
+Nuxt3提供了多种方法来处理应用程序中的数据获取：
+  $fetch
+  useFetch
+  useLazyFetch
+  useAsyncData
+  useLazyAsyncData
+
+Nuxt3 不推荐也没必要使用Axios进行网络请求，Axios本来是对 XMLHttpRequest 的封装，而现如今网络请求这种功能由 XMLHttpRequest 逐渐被 Fetch API 代替，浏览器已支持原生支持fetch，Node v17.5也引入了对fetch的原生支持。Nuxt3的官方团队将fetch进一步封装，封装的项目叫做ofetch，并且将其集成到Nuxt3中，就是开头提到的$fetch方法。
+*/
+
 // $fetch 基于用户交互发出网络请求非常有用
 // Nuxt3 使用 ofetch 全局公开 $fetch 助手来发出 HTTP 请求。-$fetch是在 Nuxt 中进行 HTTP 调用的首选方式，
 // 在SSR过程中，数据会被提取两次，一次在服务器上，另一次在客户端上。
@@ -93,14 +105,16 @@ const dataTwice = await $fetch('/api/item1', {
 
 // useAsyncData 适合在服务器端渲染时预取数据  -useAsyncData与 结合使用$fetch，可提供更细粒度的控制。
 // 在SSR期间，数据仅在服务器端获取并传输到客户端。
-const { data: res, error } = await useAsyncData('api_item2', () => $fetch('/api/item2'))
+const { data: res } = await useAsyncData('api_item2', () => $fetch('/api/item2'))
 //呼叫useAsyncData（）并不是直接帮我们送出HTTP请求，而是在handler内使用$fetch来打API，只是useAsyncData（）组合式函数，封装了更多打API时可以使用的方法与参数，来因应不同的使用情境。当然如果想要，你也可以使用其他套件来替换$fetch但可能就没办法享受它所带来的好处。
 
 // useFetch 适合在客户端渲染时动态获取数据 - 您也可以用useFetch作为useAsyncData+$fetch的快捷方式
+// useFetch 是对 useAsyncData 的一层包装，可以理解为所有的都选择默认配置的useAsyncData 方法，useFetch(url)几乎等同于useAsyncData(url, () => $fetch(url))——它是最常见用例的开发人员语法糖。
 // useFetch 是在组件设置函数中处理数据获取的最直接方法。
-const { data, pending, status } = await useFetch('/api/item3')
-// const { data, pending, status } = await useRequest('/api/item4')
+const { data, pending, status ,error} = await useFetch('/api/item3')
+const { refresh } = await useRequest('/api/item4')
 
+// const { data, pending, status} = await getFetchData({url:'/api/item4'})
 
 
 const url = useRequestURL() // 返回一个在服务器端和客户端都工作的URL 对象。
