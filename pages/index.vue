@@ -47,6 +47,7 @@ useSeoMeta({
 
 // useHeadSafe 适合在组件中动态设置页面头部标签，而 setHead 适合在页面布局文件中静态设置页面头部标签。
 
+const testName = ref();
 const appConfig = useAppConfig()
 console.log("theme", appConfig.theme)
 
@@ -78,6 +79,11 @@ function save() {
     list.value = [...list.value]
     // list cookie update with this change
   }
+}
+
+function ajax() {
+  console.log("ajax",testName)
+  const { data, pending, status ,error} =  useFetch('/api/item5')
 }
 
 
@@ -146,7 +152,7 @@ const jsColor = ref("#E53935")
     <button @click="$router.back()">Back</button>
     <button @click="$router.push({ path: '/user-admin/678/' })">/678/</button>
 
-    <div>{{ $route.meta.title }}</div>
+    <div @click="ajax">{{testName}} - {{ $route.meta.title }}</div>
     <div class="example">
       <p class="animate__animated animate__bounce animate__delay-2s">{{ formatNumber(46123456.789212) }}</p>
       <p class="animate__animated animate__bounceInDown animate__faster">{{ tools.typeOf({}) }}</p>

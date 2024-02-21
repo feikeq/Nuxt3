@@ -5,7 +5,7 @@
 
 // import ButtonCounter from './ButtonCounter.vue' //使用组件
 
-import { ref, computed,watch,onMounted,onUnmounted } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 
 
 
@@ -59,10 +59,10 @@ defineProps({
 */
 
 //在 3.4 版本之前 按照如下的方式来实现v-model组件 如你所见，这显得冗长得多。然而，这样写有助于理解其底层机制。
-const props = defineProps(['modelValue','title'])
+const props = defineProps(['modelValue', 'title'])
 //声明触发的事件
 defineEmits(['update:modelValue'])
-console.log("props.title",props.title)
+console.log("props.title", props.title)
 
 // vue3 中 defineProps(['modelValue','title']) 和 defineModel() 实现v-model 这两种方式有什么区别？
 // v-model 可以在组件上使用以实现双向绑定。 
@@ -88,7 +88,7 @@ const theTextEm = ref(null) // 必须和模板里的 ref 同名
 
 // 响应式状态
 const count = ref(0)
-const list = ref([{name:'haha',msg:11},{name:'hehe',msg:22}])
+const list = ref([{ name: 'haha', msg: 11 }, { name: 'hehe', msg: 22 }])
 let intervalId
 // 用来修改状态、触发更新的函数
 function increment() {
@@ -115,21 +115,26 @@ const theMsg = computed(() => {
 
 
 // 监听可以直接侦听一个 ref
-watch(count, async (newV,oldV) => {
-   console.log(newV,oldV)
+watch(count, async (newV, oldV) => {
+  console.log(newV, oldV)
 }
-,{ deep: true } //深层侦听器 直接给 watch() 传入一个响应式对象，会隐式地创建一个深层侦听器 ,当然也可以 显式地加上 deep 选项，
-//也可通过传入 immediate: true 选项来强制侦听器的回调立即执行
+  , { deep: true } //深层侦听器 直接给 watch() 传入一个响应式对象，会隐式地创建一个深层侦听器 ,当然也可以 显式地加上 deep 选项，
+  //也可通过传入 immediate: true 选项来强制侦听器的回调立即执行
 )
 
 
 // 注册一个回调函数，在组件挂载完成后执行。
 onMounted(() => {
+  let num = 0;
   intervalId = setInterval(() => {
-    console.log(Date.now())
-  },1000)
+    num++;
+    console.log(num, Date.now());
+    if (num > 7) {
+      clearInterval(intervalId)
+    }
+  }, 1000)
   console.log(`The initial count is ${count.value}.`)
-  
+
   //3 秒后聚焦到这个文本框上
   setTimeout(() => {
     theTextEm.value.focus()
@@ -151,17 +156,17 @@ onUnmounted(() => clearInterval(intervalId))
     若要强制页面系统，请在nuxt.config中设置pages:true或具有app/router.options.ts。
     请记住，它app.vue是 Nuxt 应用程序的主要组件。您添加到其中的任何内容（JS 和 CSS）都将是全局的并包含在每个页面中。
    -->
-   <NuxtLayout>
+  <NuxtLayout>
     <!-- 如果您有目录要显示当前页面 NuxtPage 与页面一起使用 -->
     <NuxtPage />
   </NuxtLayout>
 
   <hr />
   <button @click.stop="increment">
-   Count is: {{ count }}
-  <slot>
-    Submit <!-- 插槽指定默认内容（父组件没有提供任何插槽内容时在 <button> 内渲染“Submit”） -->
-  </slot>
+    Count is: {{ count }}
+    <slot>
+      Submit <!-- 插槽指定默认内容（父组件没有提供任何插槽内容时在 <button> 内渲染“Submit”） -->
+    </slot>
   </button>
   <slot name="header" alt="具名插槽"></slot>
   <!-- 
@@ -172,27 +177,22 @@ onUnmounted(() => clearInterval(intervalId))
     使用 JavaScript 函数来类比可能更有助于你来理解具名插槽：
     ${slots.header}
    -->
-  {{theMsg}}
+  {{ theMsg }}
 
   <ul>
-  <template v-for="(item,index) in list" :key="index">
-    <li >{{ item.name }} | {{ item.msg }}</li>
-  </template>
-  <!-- <ButtonCounter alt="推荐为子组件使用 PascalCase 的标签名，以此来和原生的 HTML 元素作区分" /> -->
-  <slot />
-  <input
-    :value="modelValue"
-    @input="$emit('update:modelValue', $event.target.value)"
-    ref="theTextEm"
-  />
+    <template v-for="(item, index) in list" :key="index">
+      <li>{{ item.name }} | {{ item.msg }}</li>
+    </template>
+    <!-- <ButtonCounter alt="推荐为子组件使用 PascalCase 的标签名，以此来和原生的 HTML 元素作区分" /> -->
+    <slot />
+    <input :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" ref="theTextEm" />
 
-   {{x}},{{y}}
+    {{ x }},{{ y }}
 
-   <hr />
-   <NuxtWelcome />
-  组件结束
-</ul>
-
+    <hr />
+    <NuxtWelcome />
+    组件结束
+  </ul>
 </template>
 
 <style>
