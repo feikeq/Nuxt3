@@ -83,7 +83,8 @@ function save() {
 
 function ajax() {
   console.log("ajax",testName)
-  const { data, pending, status ,error} =  useFetch('/api/item5')
+  useFetch('/api/item5')
+  $fetch('/api/item6')
 }
 
 
@@ -105,7 +106,7 @@ Nuxt3 不推荐也没必要使用Axios进行网络请求，Axios本来是对 XML
 // const dataTwice = await $fetch('/api/item')
 const dataTwice = await $fetch('/api/item1', {
   method: 'patch',
-  body: { hello: 'world ' }
+  body: { hello: 'world' }
 })
 
 
@@ -118,7 +119,7 @@ const { data: res } = await useAsyncData('api_item2', () => $fetch('/api/item2')
 // useFetch 是对 useAsyncData 的一层包装，可以理解为所有的都选择默认配置的useAsyncData 方法，useFetch(url)几乎等同于useAsyncData(url, () => $fetch(url))——它是最常见用例的开发人员语法糖。
 // useFetch 是在组件设置函数中处理数据获取的最直接方法。
 const { data, pending, status ,error} = await useFetch('/api/item3')
-const { refresh } = await useRequest('/api/item4')
+// const { refresh } = await useRequest('/api/item4')
 
 // const { data, pending, status} = await getFetchData({url:'/api/item4'})
 
