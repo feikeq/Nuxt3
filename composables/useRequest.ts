@@ -55,6 +55,7 @@ export const useRequest = async (url: string, options: object) => {
 
     // 请求拦截
     onRequest({ request, options }: { request: Request, options: object }) {
+      console.log("---- 请求拦截 ----", request,options);
       // 设置请求标头
       // options.headers = options.headers || {}
       // options.headers.authorization = '...'
@@ -63,16 +64,16 @@ export const useRequest = async (url: string, options: object) => {
     // 请求错误拦截
     onRequestError({ request, options, error }: { request: Request, options: object, error: Error }) {
       // 处理请求错误
+      console.log("---- 处理请求错误 ----", request, options, error );
     },
 
     // 响应拦截
     onResponse({ request, response, options }: { request: Request, response: Response, options: object }) {
+      console.log("---- 响应拦截 ----", request, response, options);
       // 处理响应数据
       // localStorage.setItem('token', response._data.token)
-
-      console.log("response", response);
       const res = response._data;
-      //后端返回code=0时弹出错误信息，此处采用了element-plus
+      // 后端返回code=0时弹出错误信息
       if (res.code == 0) {
         console.log(res.msg);
       }
@@ -81,6 +82,7 @@ export const useRequest = async (url: string, options: object) => {
 
     // 响应错误拦截
     onResponseError({ request, response, options }: { request: Request, response: Response, options: object }) {
+      console.warn('---- 响应错误拦截 ----', request, response, options );
       // 处理响应错误
       console.log("response-error", response);
       const res = response._data;
