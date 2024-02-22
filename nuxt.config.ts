@@ -44,7 +44,7 @@ export default defineNuxtConfig({
     apiSecret: '256257282931',
     // 公钥中的密钥也将暴露给客户端,可以由 NUXT_PUBLIC_API_BASE 环境变量重写
     public: {
-      apiBase: '/aaaaapppppppppiiiiii'
+      apiBase: '/'
     }
   },
   vite: {
@@ -67,7 +67,7 @@ export default defineNuxtConfig({
     }
   },
   plugins: [
-    { src: "@/compotables/ofetch", ssr: true }, // $fetch拦截器配置与token携带 - 开启服务端渲染
+    // { src: "/xxx/ofetch", ssr: true }, // $fetch拦截器配置与token携带 - 开启服务端渲染
   ],
 
 })

@@ -122,8 +122,8 @@ const { data, pending, status ,error} = await useFetch('/api/item3')
 // const { refresh } = await useRequest('/api/item4')
 
 // const { data, pending, status} = await getFetchData({url:'/api/item4'})
-
-
+const { data:theDatas, refresh} = await useRequest('/user/login/',{method:'POST'}) 
+console.log("-data-datas",theDatas)
 const url = useRequestURL() // 返回一个在服务器端和客户端都工作的URL 对象。
 // const router = useRouter() // 返回路由器实例(不用定义，模版里也可以直接使用$router.back())
 
