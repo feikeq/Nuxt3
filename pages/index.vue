@@ -133,7 +133,7 @@ if (process.server) {
   console.log('API secret（服务端才能印出来）:', runtimeConfig.apiSecret)
 }
 console.log(runtimeConfig, "apiSecret（客户端打印不出）", runtimeConfig.apiSecret)
-console.log("public.apiBase", runtimeConfig.public.apiBase)
+console.log("runtimeConfig", runtimeConfig.public)
 console.log(process.env, "process.env.NUXT_PUBLIC_API_BASE", process.env.NUXT_PUBLIC_API_BASE)
 
 

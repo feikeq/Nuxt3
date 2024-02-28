@@ -39,6 +39,7 @@ export const useRequest = async (url: string, options: object) => {
   const config = useRuntimeConfig();
   //此处是引入了pinia进行状态管理，大家可以根据自己需求进行重写
   //const store = useMainStore();
+  console.log("config.public.apiBase",config.public.apiBase);
 
   const headers = {
     Authorization: 'Bearer ' + (localStorage.getItem('token') || '----------------------'),
