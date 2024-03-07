@@ -1,4 +1,8 @@
 // Nuxt配置 https://nuxt.com/docs/api/configuration/nuxt-config
+/* 
+  您不必使用 TypeScript 来使用 Nuxt 构建应用程序。但是，强烈建议使用.ts该nuxt.config文件的扩展名。这样，您就可以受益于 IDE 中的提示，避免在编辑配置时出现拼写错误和错误。
+  const runtimeConfig = useRuntimeConfig() //用于在应用程序中公开配置变量。
+*/
 export default defineNuxtConfig({
   // 仅客户端渲染 - 如果您不想预渲染路由，另一种使用静态托管的方法是在nuxt.config文件中将ssr属性设置为false。然后，npm run generate命令将输出一个.output/public/index.html入口点和JavaScript捆绑包，就像经典的客户端Vue.js应用程序一样。
   ssr: false, //　关闭服务端渲染
