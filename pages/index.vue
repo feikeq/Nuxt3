@@ -21,7 +21,7 @@ const props = defineProps({
 // useHead 是一个 Composition API 函数，用于在组件中设置和管理页面的头部元数据，例如标题、meta 标签、link 标签等。使用 useHead 可以在组件内动态地设置页面的头部信息。
 // useHead 更适合于动态设置页面头部信息
 useHead({
-  title: `${props.title} - useHead`,
+  title: `${props.title} - useHead -`,
   meta: [
     { name: 'description', content: 'My amazing site.' }
   ],
@@ -32,7 +32,7 @@ useHead({
     src: '/js/script.js',
     tagPosition: 'bodyClose'
   },
-  { innerHTML: 'console.log(\'Hello world\')' }]
+  { innerHTML: 'console.log(\'Hello world\')' }],
 })
 
 // useSeoMeta 是一个用于管理 SEO 相关元数据的新 API，它提供了一种更专门的方式来设置页面的 SEO 相关信息，例如标题、描述、关键字等。它是专门用于处理页面的 SEO 元数据的 API。
@@ -122,10 +122,12 @@ const { data, pending, status ,error} = await useFetch('/api/item3')
 // const { refresh } = await useRequest('/api/item4')
 
 // const { data, pending, status} = await getFetchData({url:'/api/item4'})
-const { data:theDatas, refresh} = await useRequest('/user/login/',{method:'POST',body:{name:"111",pwd:"222"}}) 
-console.log("-data-datas",theDatas)
-const url = useRequestURL() // 返回一个在服务器端和客户端都工作的URL 对象。
-// const router = useRouter() // 返回路由器实例(不用定义，模版里也可以直接使用$router.back())
+const { data:theDatas, refresh} = await useRequest('/user/login/',{method:'POST',body:{name:"111",pwd:"222"}}) ;
+console.log("-data-datas",theDatas);
+const url = useRequestURL(); // 返回一个在服务器端和客户端都工作的URL 对象。
+const router = useRouter() ;// 路由器实例对象 $router
+console.log(`App Name -`,router);
+
 
 
 const runtimeConfig = useRuntimeConfig() // 访问运行时配置变量
@@ -157,7 +159,7 @@ const jsColor = ref("#E53935")
     <div class="example">
       <p class="animate__animated animate__bounce animate__delay-2s">{{ formatNumber(46123456.789212) }}</p>
       <p class="animate__animated animate__bounceInDown animate__faster">{{ tools.typeOf({}) }}</p>
-      <p class="text">(动态样式v-bind) URL is: {{ url }}</p>
+      <p class="text">(css动态样式jsColor绑定v-bind) URL is: {{ url }}</p>
       <p>Path is: {{ url.pathname }}</p>
       ｜<NuxtLink to="/user-admin/234/" transition="fade">我来看看/user-admin/234/</NuxtLink>｜
     </div>
