@@ -21,9 +21,9 @@ export default defineNuxtConfig({
     // baseURL:"/", // Nuxt 应用程序的基本路径。这可以在运行时通过设置 NUXT_APP_BASE_URL 环境变量来设置。
     head: {
       title:"测试",
-      // htmlAttrs: {
-      //   lang: 'zh'
-      // },  
+      htmlAttrs: {
+        lang: 'zh'
+      },  
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover',
       meta: [
