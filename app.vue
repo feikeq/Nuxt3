@@ -122,7 +122,7 @@ watch(count, async (newV, oldV) => {
 )
 
 
-// 注册一个回调函数，在组件挂载完成后执行。
+// 注册一个回调函数，在组件挂载完成后执行。(vue3 中 onMounted 相当于就是 vue2 里的 created)
 onMounted(() => {
   let num = 0;
   intervalId = setInterval(() => {
@@ -140,6 +140,12 @@ onMounted(() => {
   }, 3000);
 
   window.addEventListener('mousemove', update)
+})
+
+// 注册一个回调，在组件由于反应性状态更改而更新其 DOM 树后调用。
+onUpdated(() => {
+  // text content should be the same as current `count.value`
+  console.log(document.getElementById('count').textContent)
 })
 
 //注册一个回调函数，在组件实例被卸载之后调用。
