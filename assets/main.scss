@@ -8,13 +8,81 @@ body{
     color: $primary-color;
 }
 
-
+//自动过渡动画效果
 .page-enter-active,
 .page-leave-active {
-  transition: all .6s;
+  transition: all .4s;
 }
 .page-enter-from,
 .page-leave-to {
   opacity: 0;
   filter: blur(1rem);
+}
+
+//3D旋转效果
+.rotate-enter-active,
+.rotate-leave-active {
+  transition: all 0.4s;
+}
+.rotate-enter-from,
+.rotate-leave-to {
+  opacity: 0;
+  transform: rotate3d(1, 1, 1, 15deg);
+}
+
+// app过度效果
+.app-enter-active,
+.app-leave-active {
+  transition: all .4s;
+}
+.app-enter-from,
+.app-leave-to {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+//向左转场效果
+.left-enter-active,
+.left-leave-active {
+  transition: all .3s;
+}
+.left-enter-from {
+  margin-left: 50%;
+}
+.left-leave-to {
+  margin-left: -50%
+}
+
+//布局过渡效果
+.layout-enter-active,
+.layout-leave-active {
+  transition: all 0.4s;
+}
+.layout-enter-from,
+.layout-leave-to {
+  filter: grayscale(1);
+}
+
+//slide 加载效果
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: all 0.2s;
+}
+.slide-left-enter-from {
+  opacity: 0;
+  transform: translate(50px, 0);
+}
+.slide-left-leave-to {
+  opacity: 0;
+  transform: translate(-50px, 0);
+}
+.slide-right-enter-from {
+  opacity: 0;
+  transform: translate(-50px, 0);
+}
+.slide-right-leave-to {
+  opacity: 0;
+  transform: translate(50px, 0);
 }

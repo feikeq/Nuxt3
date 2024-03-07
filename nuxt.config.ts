@@ -20,10 +20,10 @@ export default defineNuxtConfig({
   app: {
     // baseURL:"/", // Nuxt 应用程序的基本路径。这可以在运行时通过设置 NUXT_APP_BASE_URL 环境变量来设置。
     head: {
-      title:"测试",
+      title: "测试",
       htmlAttrs: {
         lang: 'zh'
-      },  
+      },
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover',
       meta: [
@@ -33,9 +33,28 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: `/favicon.ico` }
-      ],  
+      ],
     },
-    pageTransition: { name: 'page', mode: 'out-in' } // 页面转换过渡效果(如要支持过度动画效果 Transition包裹的必须是一个单根的组件只是不用手动加<Transition>组件了)
+    // 全设置过渡动画效果(禁用过渡效果设置为pageTransition:false即可)
+    // 页面转换过渡效果(如要支持过度动画效果 Transition包裹的必须是一个单根的组件只是不用手动加<Transition>组件了并且在同一个layout里)
+    pageTransition: {
+      name: 'app',
+      mode: 'out-in',
+    },
+    layoutTransition: {
+      name: 'layout', // 定义的css动画名称 page-enter-active
+      mode: 'out-in', // 控制离开或进入转换的时序（'in-out' | 'out-in' | 'default'）
+      //用于自定义转换类的道具在模板中使用烤肉串案例，例如从class=“xxx”输入 
+      // enterFromClass: "slide-left",
+      // enterActiveClass: "slide-left",
+      // enterToClass: "slide-left",
+      // appearFromClass: "",
+      // appearActiveClass: "",
+      // appearToClass: "",
+      // leaveFromClass: "slide-right",
+      // leaveActiveClass: "slide-right",
+      // leaveToClass: "slide-right",
+    },
   },
   css: [
     // 样式表将内联在 Nuxt 渲染的 HTML 中，全局注入并出现在所有页面中.

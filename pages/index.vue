@@ -160,27 +160,27 @@ const jsColor = ref("#E53935")
 
 <template>
   <div alt="如要支持过度动画效果 Transition包裹的必须是一个单根的组件">
-  <button @click="$router.back()">Back</button>
-  <button @click="$router.push({ path: '/user-admin/678/' })">/678/</button>
+    <button @click="$router.back()">Back</button>
+    <button @click="$router.push({ path: '/user-admin/678/' })">/678/</button>
 
-  <div @click="ajax">{{ testName }} - {{ $route.meta.title }}</div>
-  <div class="example">
-    <p class="animate__animated animate__bounce animate__delay-2s">{{ formatNumber(46123456.789212) }}</p>
-    <p class="animate__animated animate__bounceInDown animate__faster">{{ tools.typeOf({}) }}</p>
-    <p class="text">(css动态样式jsColor绑定v-bind) URL is: {{ url }}</p>
-    <p>Path is: {{ url.pathname }}</p>
-    ｜<NuxtLink to="/user-admin/234/" transition="fade">我来看看/user-admin/234/</NuxtLink>｜
-  </div>
-  <button @click="add">CookieAdd</button>
-  <button @click="save">CookieSave</button>
+    <div @click="ajax">{{ testName }} - {{ $route.meta.title }}</div>
+    <div class="example">
+      <p class="animate__animated animate__bounce animate__delay-2s">{{ formatNumber(46123456.789212) }}</p>
+      <p class="animate__animated animate__bounceInDown animate__faster">{{ tools.typeOf({}) }}</p>
+      <p class="text">(css动态样式jsColor绑定v-bind) URL is: {{ url }}</p>
+      <p>Path is: {{ url.pathname }}</p>
+      ｜<NuxtLink to="/user-admin/234/" transition="fade">我来看看/user-admin/234/</NuxtLink>｜
+    </div>
+    <button @click="add">CookieAdd</button>
+    <button @click="save">CookieSave</button>
 
-  <p>状态管理 States: {{ states }}</p>
-  <div class="flex gap-2 my-4">
-    <button @click="states--">-</button>
-    <button @click="states++">+</button>
+    <p>状态管理 States: {{ states }}</p>
+    <div class="flex gap-2 my-4">
+      <button @click="states--">-</button>
+      <button @click="states++">+</button>
+    </div>
+    <p>Same States: {{ sameStates }}</p>
   </div>
-  <p>Same States: {{ sameStates }}</p>
-</div>
 </template>
 
 
