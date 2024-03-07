@@ -55,6 +55,35 @@ defineProps({
     }
   }
 })
+
+
+
+
+Vue3生命周期相对于Vue2生命周期来说，区别不是很大，最大的区别在Vue2的beforeCreate和Created用在Vue3中用setup代替，其他的生命周期只是在命名上有改变。
+
+beforeDestroy 改名为 beforeUnmount
+destroyed 改名为 unmounted
+beforeCreate => setup
+created => setup
+beforeMount => onBeforeMount
+mounted => onMounted
+beforeUpdate => onBeforeUpdate
+updated => onUpdated
+beforeUnmount => onBeforeUnmount
+unmounted => onUnmounted
+
+特别注意的是：Vue3所有的生命周期需要写到setup中，如下：
+
+setup() {
+onMounted(() => {
+  console.log('mounted')
+})
+onUnmounted(() => {
+  console.log('onUnmounted')
+})   
+}
+
+
 */
 
 //在 3.4 版本之前 按照如下的方式来实现v-model组件 如你所见，这显得冗长得多。然而，这样写有助于理解其底层机制。
@@ -122,7 +151,7 @@ watch(count, async (newV, oldV) => {
 )
 
 
-// 注册一个回调函数，在组件挂载完成后执行。(vue3 中 onMounted 相当于就是 vue2 里的 created)
+// 注册一个回调函数，在组件挂载完成后执行。
 onMounted(() => {
   let num = 0;
   intervalId = setInterval(() => {
