@@ -20,7 +20,6 @@ console.log(sameStates.value);
         <p>admin - 234</p>
      -->
         <p>{{ $route.params.group }} - {{ $route.params.id }}</p>
-        ｜<NuxtLink to="/" transition="fade">返回首页</NuxtLink>｜
+        ｜<NuxtLink to="/">返回首页</NuxtLink>｜
     </div>
 </template>
-  
