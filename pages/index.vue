@@ -81,13 +81,19 @@ function save() {
   }
 }
 
-function ajax() {
-  console.log("ajax",testName)
-  useRequest('/api/item5',{})
-  $fetch('/api/item6')
-}
+const url = useRequestURL(); // 返回一个在服务器端和客户端都工作的URL 对象。
+const router = useRouter() ;// 路由器实例对象 $router
+console.log(`App Name -`,router);
 
+async function ajax() {
+  try {
+    console.log("ajax",testName)
+  } catch (error) {
+    console.log("error",error)
+  }
+  
 
+  
 /*
 数据获取 https://nuxt.com/docs/getting-started/data-fetching
 Nuxt3提供了多种方法来处理应用程序中的数据获取：
@@ -124,10 +130,9 @@ const { data, pending, status ,error} = await useFetch('/api/item3')
 // const { data, pending, status} = await getFetchData({url:'/api/item4'})
 const { data:theDatas, refresh} = await useRequest('/user/login/',{method:'POST',body:{name:"111",pwd:"222"}}) ;
 console.log("-data-datas",theDatas);
-const url = useRequestURL(); // 返回一个在服务器端和客户端都工作的URL 对象。
-const router = useRouter() ;// 路由器实例对象 $router
-console.log(`App Name -`,router);
 
+
+};
 
 
 const runtimeConfig = useRuntimeConfig() // 访问运行时配置变量
