@@ -1,4 +1,5 @@
 // utils/tools.js
+// tools.typeOf({})
 
 // 创建一个对象来存放工具函数
 const tools = {
